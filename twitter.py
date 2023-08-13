@@ -38,4 +38,7 @@ def run_twitter_etl():
         list.append(refined_tweet)
 
     df = pd.DataFrame(list)
-    df.to_csv('refined_tweets.csv')
+    df.to_csv("s3://deveshbadolia08/df_new.csv",
+          storage_options={'key': '<your_access_key_id>',
+                           'secret': '<your_secret_access_key>'})
+    print("Dataframe is saved as CSV in S3 bucket.")
